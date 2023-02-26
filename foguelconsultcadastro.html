@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Foguel Consult Cadastro</title>
+</head>
+
+<body bgcolor="#B0C4DE">
+
+    <div>
+        <h1>Cadastro de Profissionais</h1>
+        <p><b>Complete as informações abaixo:</b></p>
+        <br>
+    </div>
+
+    <form method="post">
+        <fieldset>
+            <div>
+                <label>Nome:</label>
+                <input type="text" nome="Nome" id="Nome" required>
+            </div>
+            <br>           
+
+            <div>
+                <label>Sobre Nome:</label>
+                <input type="text" nome="Sobre Nome" id="Sobre Nome" required>
+            </div>
+            <br>
+           
+            <div>                
+                Data do Cadastro:<input type="date"><br>
+            </div>
+            <br>
+
+            <div>
+                <b><label>Sexo:</label></b><br>
+                <input type="radio" name="opcao"> Feminino <br>
+                <input type="radio" name="opcao"> Masculino <br>
+                <input type="radio" name="opcao"> Outros <br>
+            </div>
+            <br>
+
+            <div>
+                <b><label>Estado Civil:</label></b><br>
+                <input type="radio" name="opcao"> Solteiro <br>
+                <input type="radio" name="opcao"> Casado <br>
+                <input type="radio" name="opcao"> União Estável <br>
+                <input type="radio" name="opcao"> Divorciado <br>
+                <input type="radio" name="opcao"> Viuvo <br>
+                <input type="radio" name="opcao"> Outros <br>
+            </div>
+            <br>
+
+            <div>                
+                Data de Nascimento:<input type="date"><br>
+            </div>
+            <br>
+
+            <div>
+                Idade: <input type="number">
+            </div>
+            <br>
+
+            <div>
+                <label>Email:</label>
+                <input type="email" nome="email" id="Email" required>
+            </div>
+            <br>
+
+            <div>
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" class="input-padrao" required placeholder="(xx) xxxxx-xxxx">
+            </div>
+            <br>
+
+            <div>
+                <label>Senha:</label>
+                <input type="password"><br>
+            </div>
+            <br>
+
+            <div>
+                <p>Escolha um Cargo:</p>
+                <select name="Cargos">
+                    <option value="programador"> Programador </option>
+                    <option value="Q&A"> Qualidade </option>
+                    <option value="infra"> Infraestrutura </option>
+                    <option value="Sistemas"> Sistemas/Projetos </option>
+                    <option value="Administativo"> Administrativo </option>        
+                </select>            
+            </div>
+            <br>
+
+            <div>
+                <label>Foto:</label>
+                <input type="file"></imput><br>
+            </div>
+            <br>
+
+            <div>
+               <b>Quais Tecnologias/Metodologias você tem maior familiaridade:</b><br>
+               <input type="Checkbox" name="Java"> Java <br>
+               <input type="Checkbox" name="PHP"> PHP <br>
+               <input type="Checkbox" name="CSharp"> Dot Net <br>
+               <input type="Checkbox" name="Angular"> Angular <br>
+               <input type="Checkbox" name="ReactJS"> ReactJS <br>
+               <input type="Checkbox" name="React Native"> React Native<br>
+               <input type="Checkbox" name="Android"> Android<br>
+               <input type="Checkbox" name="iOS"> iOS<br>                        
+            </div>
+            <br>
+
+            <div>
+                Entenda um pouco mais sobre as tecnologias clicando no link abaixo:<br>
+                <a href="foguelconsulttecnologias.html">Tecnologias</a>
+
+
+            </div>
+            <br>
+
+
+
+            <div>
+                <p> <b> Descreva um resumo de suas competências:</b></p>
+                <textarea name="descrição" id="" cols="30" rows="10"></textarea>
+            </div>
+            <br>
+
+            <div>
+                <input type="submit" value="Cadastrar">
+                <input Type= "reset" value="apagar"><br>
+            </div>
+            <br>
+
+            <div>
+                <a href="foguelconsul.html">Voltar</a>
+            </div>
+            <br>
+
+
+            <p id="demo">Clique no botão para obter sua localização:</p>
+<button onclick="getLocation()">Clique aqui</button>
+<div id="mapholder"></div>
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script>
+var x=document.getElementById("demo");
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(showPosition,showError);
+    }
+  else{x.innerHTML="Geolocalização não é suportada nesse browser.";}
+  }
+ 
+function showPosition(position)
+  {
+  lat=position.coords.latitude;
+  lon=position.coords.longitude;
+  latlon=new google.maps.LatLng(lat, lon)
+  mapholder=document.getElementById('mapholder')
+  mapholder.style.height='250px';
+  mapholder.style.width='500px';
+ 
+  var myOptions={
+  center:latlon,zoom:14,
+  mapTypeId:google.maps.MapTypeId.ROADMAP,
+  mapTypeControl:false,
+  navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
+  };
+  var map=new google.maps.Map(document.getElementById("mapholder"),myOptions);
+  var marker=new google.maps.Marker({position:latlon,map:map,title:"Você está Aqui!"});
+  }
+ 
+function showError(error)
+  {
+  switch(error.code)
+    {
+    case error.PERMISSION_DENIED:
+      x.innerHTML="Usuário rejeitou a solicitação de Geolocalização."
+      break;
+    case error.POSITION_UNAVAILABLE:
+      x.innerHTML="Localização indisponível."
+      break;
+    case error.TIMEOUT:
+      x.innerHTML="O tempo da requisição expirou."
+      break;
+    case error.UNKNOWN_ERROR:
+      x.innerHTML="Algum erro desconhecido aconteceu."
+      break;
+    }
+  }
+</script>
+
+
+Read more: http://www.linhadecodigo.com.br/artigo/3653/usando-geolocalizacao-com-html5.aspx#ixzz7uLOE9WMM
+
+        </fieldset>
+
+    </form>    
+
+
+</body>
+</html>
