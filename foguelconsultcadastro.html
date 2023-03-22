@@ -6,45 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Foguel Consult Cadastro</title>
+    <link rel="stylesheet" href="estilo.css">
+    
 </head>
 
 <body bgcolor="#B0C4DE">
 
     <div>
-        <h1>Cadastro de Profissionais</h1>
-        <p><b>Complete as informações abaixo:</b></p>
+        <h1 id="titulo">Cadastro de Profissionais</h1>
+        <p id="subtitulo"><b>Complete as informações abaixo:</b></p>
         <br>
     </div>
 
     <form method="post">
-        <fieldset>
+        <fieldset class="grupo">
             <div>
-                <label>Nome:</label>
+                <label for="nome"><strong>Nome:</strong></label>
                 <input type="text" nome="Nome" id="Nome" required>
             </div>
             <br>           
 
-            <div>
-                <label>Sobre Nome:</label>
-                <input type="text" nome="Sobre Nome" id="Sobre Nome" required>
+            <div class="campo">
+                <label for="sobrenome"><strong>Sobrenome:</strong></label>
+                <input type="text" nome="Sobrenome" id="Sobrenome" required>
             </div>
             <br>
            
-            <div>                
-                Data do Cadastro:<input type="date"><br>
+            <div class="campo">                
+                <strong>Data do Cadastro:</strong><input type="date"><br>
             </div>
             <br>
 
-            <div>
-                <b><label>Sexo:</label></b><br>
+            <div class="campo">
+                <b><label for="sexo"><strong>Sexo:</strong></label></b><br>
                 <input type="radio" name="opcao"> Feminino <br>
                 <input type="radio" name="opcao"> Masculino <br>
                 <input type="radio" name="opcao"> Outros <br>
             </div>
             <br>
 
-            <div>
-                <b><label>Estado Civil:</label></b><br>
+            <div class="campo">
+                <b><label for="estado civil"><strong>Estado Civil:</strong></label></b><br>
                 <input type="radio" name="opcao"> Solteiro <br>
                 <input type="radio" name="opcao"> Casado <br>
                 <input type="radio" name="opcao"> União Estável <br>
@@ -54,36 +56,36 @@
             </div>
             <br>
 
-            <div>                
-                Data de Nascimento:<input type="date"><br>
+            <div class="campo">                
+                <strong>Data de Nascimento:</strong><input type="date"><br>
             </div>
             <br>
 
-            <div>
-                Idade: <input type="number">
+            <div class="campo">
+                <strong>Idade:</strong><input type="number">
             </div>
             <br>
 
-            <div>
-                <label>Email:</label>
+            <div class="campo">
+                <label for="email"><strong>Email:</strong></label>
                 <input type="email" nome="email" id="Email" required>
             </div>
             <br>
 
-            <div>
-                <label for="telefone">Telefone:</label>
+            <div class="campo">
+                <label for="telefone"><strong>Telefone:</strong></label>
                 <input type="tel" id="telefone" class="input-padrao" required placeholder="(xx) xxxxx-xxxx">
             </div>
             <br>
 
-            <div>
-                <label>Senha:</label>
+            <div class="campo">
+                <label for="senha"><strong>Senha:</strong></label>
                 <input type="password"><br>
             </div>
             <br>
 
-            <div>
-                <p>Escolha um Cargo:</p>
+            <div class="campo">
+                <p><strong>Escolha um Cargo:</strong></p>
                 <select name="Cargos">
                     <option value="programador"> Programador </option>
                     <option value="Q&A"> Qualidade </option>
@@ -94,13 +96,13 @@
             </div>
             <br>
 
-            <div>
-                <label>Foto:</label>
+            <div class="campo">
+                <label for="foto"><strong>Foto:</strong></label>
                 <input type="file"></imput><br>
             </div>
             <br>
 
-            <div>
+            <div class="campo">
                <b>Quais Tecnologias/Metodologias você tem maior familiaridade:</b><br>
                <input type="Checkbox" name="Java"> Java <br>
                <input type="Checkbox" name="PHP"> PHP <br>
@@ -113,7 +115,7 @@
             </div>
             <br>
 
-            <div>
+            <div class="campo">
                 Entenda um pouco mais sobre as tecnologias clicando no link abaixo:<br>
                 <a href="foguelconsulttecnologias.html">Tecnologias</a>
 
@@ -122,8 +124,7 @@
             <br>
 
 
-
-            <div>
+            <div class="campo">
                 <p> <b> Descreva um resumo de suas competências:</b></p>
                 <textarea name="descrição" id="" cols="30" rows="10"></textarea>
             </div>
